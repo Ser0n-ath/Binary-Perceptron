@@ -1,0 +1,5 @@
+#Virtual Enviroment
+backend/venv/
+#Cache
+backend/__pycache__/
+backend/api/__pycache__
