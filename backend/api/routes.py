@@ -1,10 +1,19 @@
 from flask import Blueprint
+import api.perceptron_controller as controller
+
+
 
 api = Blueprint('api', __name__, url_prefix='/v1/api')
 
-@api.route('/init-state') #Use pretrained perceptron model
-def get_init_state():
-    return 'Loaded perceptron start state'
+@api.route('/') #Use pretrained perceptron model
+def main():
+    return "Specify a valid route you would like to take."
+
+
+@api.route('/entry') #Use pretrained perceptron model
+def entry():
+    result = controller.init_state()
+    return result
 
 @api.route('/custom-state')  #Custom perceptron model
 def get_custom_state():
