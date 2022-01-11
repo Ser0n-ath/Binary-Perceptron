@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel = "stylesheet" href = "/frontend/css/style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+        <script src="js/main.js"></script>
+        <title>Binary Perceptron</title>
+      </head>
+
+    <body>
+        <div class = "app-title">Binary Perceptron - Dim or Bright Color Predictor</div>
+        
+        <div class = "main-container">
+            <div class = "section-1">
+                
+                <div class = "color-picker">
+                    <div class = "color-picker-prompt">Select a color shade</div>
+                    <div id="picker"></div>
+
+                    <div class = "color-selected-container">
+
+                        <div class = "colect-picker-selected"></div>
+
+                        <div class = "color-variables">
+                            <div class = "color-variables-text">
+                                <div class = "color-variables-red-text">Red</div>
+                            </div>
+                            <div class = "color-variables-text">
+                                <div class = "perceptron-state-type">Green</div>
+                            </div>
+                            <div class = "color-variables-text">
+                                <div class = "perceptron-state-type">Blue</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class = "perceptron-result-box">
+                     <div class = "perceptron-result-prompt">Neural Network Prediction</div>
+                     <div class = "perceptron-result">Dim</div>
+                </div>
+
+                
+                <div class = "perceptron-state-box">
+                    <div class = "perceptron-state-prompt">Perceptron State</div>
+                    <div class = "perceptron-state"> 
+                        <div class = "perceptron-state-stat">
+                            <div class = perceptron-state-type>Red</div>
+                            <div id="red-state" class = perceptron-state-value>0.911414</div>
+                        </div>
+                        <div class = "perceptron-state-stat">
+                            <div class = perceptron-state-type>Blue</div>
+                            <div id="blue-state" class = perceptron-state-value>0.291</div>
+                        </div>
+                        <div class = "perceptron-state-stat">
+                            <div class = perceptron-state-type>Green</div>
+                            <div id="green-state" class = perceptron-state-value>0.91</div>
+                        </div>
+                        <div class = "perceptron-state-stat">
+                            <div class = perceptron-state-type>Bias</div>
+                            <div id="bias-state" class = perceptron-state-value>56.8</div>
+                        </div>
+                        <div class = "perceptron-state-stat">
+                            <div class = perceptron-state-type>Learning Rate</div>
+                            <div id="learningrate-state" class = perceptron-state-value>0.0002</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class = "section-2">
+
+                <div class = "training-data-info-container">
+                    <div class = "num-test-case-container">
+                        <div class = "num-test-case-label">Number of Test cases</div>
+                        <div class = "num-of-test-case-val">4</div>
+                    </div>
+                    <div class = "num-training-case-container">
+                        <div class = "num-training-case-label">Number of Training data</div>
+                        <div class = "num-of-training-case-val">4</div>
+                    </div>
+                </div>
+
+                <div class = "confusion-matrix-container">
+                    <div class = confusion-matrix-title>Perceptron Confusion Matrix On Dataset</div>
+                    
+
+                </div>
+
+           </div>
+
+        </div>
+        
+    </body>
+</html>
