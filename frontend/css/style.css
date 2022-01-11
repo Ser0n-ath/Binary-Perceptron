@@ -1,0 +1,185 @@
+*{
+    font-family: 'Mulish', sans-serif;
+    margin: 0px;
+}
+
+
+body{
+    background-color: #f8f8f8;
+    background: radial-gradient(closest-corner, white, #F7F8FC);
+}
+
+.main-container{
+    display: flex;
+}
+.section-1{
+    margin-top: 20px;
+    margin-left: 350px;
+}
+
+.app-title{
+    margin-left: 85px;
+    margin-top: 24px;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+.color-picker{
+    display:flex;
+    flex-direction: column;
+    width: 300px;
+    height: 500px;
+    background: white;  
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.10);
+    border-radius: 15px;
+    background: radial-gradient(closest-corner, white, #fdfdfd);
+}
+
+.color-picker-prompt{
+    margin-top: 28px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: 252733;
+}
+
+.picker{
+    margin-left: 20px;
+    align-self:center;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Set  custom css on the IroWheel.js */
+.IroWheel, .IroSlider{
+    margin: 0 auto;
+}
+
+.IroWheel{
+    margin-bottom: 20px;
+}
+
+.IroWheelBorder{
+    box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.61);
+}
+.IroSlider{
+    box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.30);
+}
+
+/* Set  custom css on the IroWheel.js */
+
+.color-selected-container{
+    background-color: white;
+    box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.1);
+}
+.colect-picker-selected{
+    width: 40px;
+    height: 30px;
+    background-color: red;
+    border-radius: 10px;
+    align-self: flex-start;
+    margin-left: auto;
+}
+
+.color-variables{
+    height: 86px;
+    width: 250px
+}
+
+.color-variables-text{
+    margin-bottom: 5px;
+    margin-left:24px;
+    font-size: 16px;
+    
+}
+.color-selected-container{
+    margin: 0 auto;
+    margin-top: 25px;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.1);
+    flex-flow: column;
+    color: #9FA2B4;
+}
+
+.perceptron-result-box{
+    margin-top: 30px;
+    height:110px;
+    width: 300px;
+    box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(closest-corner, white, #fdfdfd);
+}
+
+
+.perceptron-result-prompt{
+    margin-top: 20px;
+    align-self: center;
+    color: #9FA2B4;
+    font-size: 20px;
+}
+
+.perceptron-state-box{
+    margin-top: 30px;
+    height: 180px;
+    width: 300px;
+    box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.1);
+    background: radial-gradient(closest-corner, white, #fdfdfd);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.perceptron-result{
+    margin-top: 10px;
+    align-self: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.perceptron-state{
+    display: flex;
+    flex-direction: column;
+}
+
+.perceptron-state-prompt{
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #9FA2B4;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.perceptron-state-stat{
+    display: flex;
+    margin-left: 24px;
+    color: #9FA2B4;
+    font-size: 14px;
+    margin-bottom: 8px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.perceptron-state-value{
+    margin-right: 50px;
+}
+
+/*  Start of Section 2*/
+
+.section-2{
+    margin-top: 20px;
+    margin-left: 85px;
+    background: radial-gradient(closest-corner, white, #fdfdfd);
+    background-color: radial-gradient(closest-corner, white, #fdfdfd);
+    width: 775px;
+    height: 850px;
+    box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
