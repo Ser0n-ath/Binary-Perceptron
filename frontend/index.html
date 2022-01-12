@@ -75,7 +75,7 @@
             </div>
 
             <div class = "section-2">
-
+                <div class="neural-network-result-container">Neural Network Result</div>
                 <div class = "training-data-info-container">
                     <div class = "num-test-case-container">
                         <div class = "num-test-case-label">Number of Test cases</div>
@@ -88,14 +88,65 @@
                 </div>
 
                 <div class = "confusion-matrix-container">
-                    <div class = confusion-matrix-title>Perceptron Confusion Matrix On Dataset</div>
-                    
-
+                    <div class = "confusion-matrix-title">Perceptron Confusion Matrix On Dataset</div>
+                    <div class="table-container">
+                        <!---Perceptron Confusion matrix Information-->
+                        <table class="content-table">
+                            <thead>
+                              <tr>
+                                <th>-</th>
+                                <th>Predicted Bright</th>
+                                <th>Predicted Dark</th>
+                                <th>Total</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th>Actually Dim</th>
+                                <td>5</td>
+                                <td>7</td>
+                                <td>12</td>
+                              </tr>
+                              <tr">
+                                <th>Actually Bright</th>
+                                <td>Sally</td>
+                                <td>515</td>
+                                <td>213</td>
+                              </tr>
+                              <tr>
+                                <th>Total</th>
+                                <td>15</td>
+                                <td>512</td>
+                                <td>12</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                            <!---Perceptron Confusion matrix Information-->
+                    </div>
                 </div>
 
-           </div>
+                <div class = "custom-dataset-container">
+                    <div class = "custom-param-label">Custom Parameters</div>
+                    <div class = "warning-label">Changes will be applied to the color picker</div>
+                </div>
+                
+                <div class = "upload-container">
+                    <div class = "train-data-upload">
+                        <div class = "train-data-upload-label">Training Data</div>
+                        <button class = "train-data-upload-btn">Select</button>
+                    </div>
+                    
+                    <div class = "test-data-upload">
+                        <div class = "test-data-upload-label">Testing Data</div>
+                        <button class = "test-data-upload-btn">Select</button>
+                    </div>
+                </div>
 
-        </div>
-        
+                <div class = "bottom-container">
+                    <div class = "data-format-note">Note: Input Data must follow the specified format as stated on github</div>
+                    <button class = "custom-data-percep">Run</button>
+                </div>
+           </div>
+        </div>    
     </body>
 </html>
