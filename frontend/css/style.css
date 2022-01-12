@@ -42,7 +42,7 @@ body{
     text-align: center;
     font-weight: bold;
     font-size: 24px;
-    color: 252733;
+    color: #252733;
 }
 
 .picker{
@@ -182,4 +182,85 @@ body{
     box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
 }
+
+/*  Start of Testing Information Chart*/
+
+.neural-network-result-container{
+    margin-top: 48px;
+    margin-left: 56px;
+    margin-bottom: 36px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.training-data-info-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 32px;
+}
+
+.num-of-test-case-val, .num-of-training-case-val{
+    margin-top: 8px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.num-test-case-container, .num-training-case-container{
+    border: 1px solid #DFE0EB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100px;
+    width: 250px;
+    border-radius: 10px;
+    align-self: center;
+}
+
+
+.num-test-case-label, .num-training-case-label{
+    margin-top: 18px;
+    font-size: 20px;
+    color: #9FA2B4;
+    font-weight: bold;
+}
+
+/*  Start of CM Info */
+.content-table {
+    border-collapse: collapse;
+    min-height: 200px;
+    min-width: 650px;
+    border-radius: 10px 10px 10px 10px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  
+
+ 
+  .content-table th, .content-table td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+    text-align: center;
+  }
+  
+
+  .confusion-matrix-container{
+    height: 290px;
+    width: 700px;
+    display: flex;
+    border: 1px solid #DFE0EB;
+    margin: 0 auto;
+    flex-direction: column;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.10);
+    border-radius: 15px;
+    background: radial-gradient(closest-corner, white, #fdfdfd);
+
+  }
+
+ .confusion-matrix-title{
+     margin-left: 16px;
+     margin-top: 22px;
+     margin-bottom: 20px;
+     font-size: 20px;
+     font-weight:600;
+     color: #202020;
+ }
 
