@@ -252,7 +252,7 @@ body{
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.10);
     border-radius: 15px;
     background: radial-gradient(closest-corner, white, #fdfdfd);
-
+    margin-bottom: 32px;
   }
 
  .confusion-matrix-title{
@@ -263,4 +263,111 @@ body{
      font-weight:600;
      color: #202020;
  }
+
+.custom-data-container{
+    height: 220px;
+    width: 700px;
+    display: flex;
+    border: 1px solid #DFE0EB;
+    margin: 0 auto;
+    flex-direction: column;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.10);
+    border-radius: 15px;
+    background: radial-gradient(closest-corner, white, #fdfdfd);
+
+}
+
+.custom-dataset-labels{
+    margin-top: 20px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.custom-param-label{
+    font-size: 24px;
+    margin-left: 24px;
+    font-weight: bold;
+}
+.warning-label{
+    margin-top: 8px;
+    color: #9FA2B4;
+    font-size: 12px;
+    margin-left: 28px;
+    margin-right: 48px;
+}
+
+.train-data-upload{
+    margin-top: 26px;
+}
+
+.test-data-upload{
+    margin-top: 10px;
+}
+.train-data-upload, .test-data-upload{
+    display:flex;
+    justify-content: space-between;
+    margin-left: 24px;
+}
+
+
+.bottom-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.train-data-upload-label, .test-data-upload-label{
+    font-size: 20px;
+    color: #9FA2B4;
+    font-weight:bold;
+}
+
+.data-format-note{
+    color: #9FA2B4;
+    font-size: 12px;
+    margin-left: 28px;
+    margin-right: 48px;
+    margin-top: 28px;
+}
+
+button.custom-data-percep{
+    height: 40px;
+    width: 140px;
+    margin-right: 32px;
+    border: none;
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #3751FF;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.20);
+    border-radius: 10px;
+  
+}
+button.custom-data-percep:hover{
+    background-color:  #576dff;
+}
+
+button.custom-data-percep:active {
+    background-color: #1b39ff;
+  }
+
+
+.train-data-upload-btn, .test-data-upload-btn{
+    margin-right: 380px;
+    height: 40px;
+    width: 140px;
+    border: none;
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #FF9737;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.20);
+    border-radius: 10px;
+}
+
+button.train-data-upload-btn:hover, button.test-data-upload-btn:hover{
+    background-color:  #eb7e17;
+}
+button.train-data-upload-btn:active, button.test-data-upload-btn:active {
+    background-color: #ff7b00;
+  }
 
