@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, request, jsonify
 import api.perceptron_controller as controller
 
 
@@ -33,9 +33,16 @@ def get_confusion_matrix():
     return 'Loaded Confusion matrix'
 
 
-@api.route('/evaluate-color') #Evaluate a user selected color
+@api.route('/evaluate-color' , methods=['POST']) #Evaluate a user selected color
 def evaluate():
-    return 'evaluation'
+    #Precondition: Perceptron Model and 
+    if(request.is_json == False):
+        return "Invalid Request Header"
+    data = request.get_json() #This is of type dictionary. 
+    print (content)
+    print(content['color'])
+    return 'JSON posted'
+
 
 @api.route('/custom-train') #Custom dataset with a prefixed learning rate and inital bias.
 def custom_data_set():
