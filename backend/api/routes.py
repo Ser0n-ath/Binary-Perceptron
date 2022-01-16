@@ -1,3 +1,4 @@
+from http import server
 from flask import Blueprint, request, jsonify
 import api.perceptron_controller as controller
 
@@ -10,7 +11,7 @@ def main():
     return "Specify a valid route you would like to take."
 
 
-@api.route('/entry') #Use pretrained perceptron model
+@api.route('/entry') #Done.
 def entry():
     result = controller.init_state()
     return result
@@ -19,7 +20,7 @@ def entry():
 def get_custom_state():
     return 'Loaded custom state & update confusion matrix'
 
-@api.route('/current-state')  #Current perceptron model
+@api.route('/current-state')  #Current perceptron model ? 
 def get_current_state():
     return 'evaluation'
 
@@ -38,10 +39,10 @@ def evaluate():
     #Precondition: Perceptron Model and 
     if(request.is_json == False):
         return "Invalid Request Header"
-    data = request.get_json() #This is of type dictionary. 
-    print (content)
-    print(content['color'])
-    return 'JSON posted'
+    client_request = request.get_json() #This is of type dictionary. 
+    server_response = controller.eval_color(client_request)
+    return server_response
+
 
 
 @api.route('/custom-train') #Custom dataset with a prefixed learning rate and inital bias.
