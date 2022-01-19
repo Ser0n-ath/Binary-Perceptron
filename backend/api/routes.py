@@ -1,5 +1,7 @@
 from http import server
 from flask import Blueprint, request, jsonify
+
+
 import api.perceptron_controller as controller
 
 
@@ -35,6 +37,7 @@ def get_confusion_matrix():
 
 
 @api.route('/evaluate-color' , methods=['POST']) #Evaluate a user selected color
+
 def evaluate():
     #Precondition: Perceptron Model and 
     if(request.is_json == False):
