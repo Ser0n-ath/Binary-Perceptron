@@ -11,10 +11,12 @@ body{
 
 .main-container{
     display: flex;
+    gap: 75px;
+    justify-content: center;
 }
 .section-1{
     margin-top: 20px;
-    margin-left: 350px;
+    
 }
 
 .app-title{
@@ -125,7 +127,7 @@ body{
 .perceptron-state-box{
     margin-top: 30px;
     height: 180px;
-    width: 300px;
+    width: 250px;
     box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.1);
     background: radial-gradient(closest-corner, white, #fdfdfd);
     border-radius: 15px;
@@ -133,6 +135,39 @@ body{
     flex-direction: column;
 }
 
+
+
+.perceptron-edit-box{
+    margin-top: 70px;
+    box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.1);
+    background: radial-gradient(closest-corner, white, #fdfdfd);
+
+}
+
+.perceptron-edit-button-options{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.perceptron-stat{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.perceptron-stat-box{
+    margin-top: 30px;
+    height: 180px;
+    width: 250px;
+    box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.1);
+    background: radial-gradient(closest-corner, white, #fdfdfd);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
 .perceptron-result{
     margin-top: 10px;
     align-self: center;
@@ -155,6 +190,15 @@ body{
   text-align: center;
 }
 
+.perceptron-state-prompt-custom-weight{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-bottom: 24px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 24px;
+}
+
 .perceptron-state-stat{
     display: flex;
     margin-left: 24px;
@@ -170,14 +214,31 @@ body{
     margin-right: 50px;
 }
 
+
+.perceptron-state-value-input{
+    margin-right: 50px;
+    background-color: #FCFDFE;
+    border: 1px solid #F0F1F7;
+    border-radius: 2px;
+
+}
 /*  Start of Section 2*/
 
 .section-2{
     margin-top: 20px;
-    margin-left: 85px;
     background: radial-gradient(closest-corner, white, #fdfdfd);
     background-color: radial-gradient(closest-corner, white, #fdfdfd);
-    width: 775px;
+    width: 600px;
+    height: 850px;
+    box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+.section-3{
+    margin-top: 20px;
+    background: radial-gradient(closest-corner, white, #fdfdfd);
+    background-color: radial-gradient(closest-corner, white, #fdfdfd);
+    width: 600px;
     height: 850px;
     box-shadow: 1px 8px 15px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
@@ -227,7 +288,7 @@ body{
 .content-table {
     border-collapse: collapse;
     min-height: 200px;
-    min-width: 650px;
+    min-width: 500px;
     border-radius: 10px 10px 10px 10px;
     overflow: hidden;
     margin: 0 auto;
@@ -236,7 +297,7 @@ body{
 
  
   .content-table th, .content-table td {
-    padding: 12px 15px;
+    padding: 2px 5px;
     border: 1px solid #dddddd;
     text-align: center;
   }
@@ -244,7 +305,7 @@ body{
 
   .confusion-matrix-container{
     height: 290px;
-    width: 700px;
+    width: 550px;
     display: flex;
     border: 1px solid #DFE0EB;
     margin: 0 auto;
@@ -265,8 +326,8 @@ body{
  }
 
 .custom-data-container{
-    height: 220px;
-    width: 700px;
+    height: 150px;
+    width: 500px;
     display: flex;
     border: 1px solid #DFE0EB;
     margin: 0 auto;
@@ -274,9 +335,14 @@ body{
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.10);
     border-radius: 15px;
     background: radial-gradient(closest-corner, white, #fdfdfd);
+    margin-bottom: 25px;
+
 
 }
 
+.upload-container{
+    margin-top: 10px;
+}
 .custom-dataset-labels{
     margin-top: 20px;
     display:flex;
@@ -284,7 +350,7 @@ body{
 }
 
 .custom-param-label{
-    font-size: 24px;
+    font-size: 20px;
     margin-left: 24px;
     font-weight: bold;
 }
@@ -293,7 +359,7 @@ body{
     color: #9FA2B4;
     font-size: 12px;
     margin-left: 28px;
-    margin-right: 48px;
+    margin-right: 36px;
 }
 
 .train-data-upload{
@@ -301,7 +367,7 @@ body{
 }
 
 .test-data-upload{
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .train-data-upload, .test-data-upload{
     display:flex;
@@ -332,6 +398,7 @@ body{
 button.custom-data-percep{
     height: 40px;
     width: 140px;
+
     margin-right: 32px;
     border: none;
     font-size: 14px;
@@ -352,9 +419,9 @@ button.custom-data-percep:active {
 
 
 .train-data-upload-btn, .test-data-upload-btn{
-    margin-right: 380px;
+    margin-right: 36px;
     height: 40px;
-    width: 140px;
+    width: 100px;
     border: none;
     font-size: 14px;
     color: #FFFFFF;
@@ -371,3 +438,11 @@ button.train-data-upload-btn:active, button.test-data-upload-btn:active {
     background-color: #ff7b00;
   }
 
+/*Section 3*/
+
+.custom-input-containers{
+    margin-top: 50px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}

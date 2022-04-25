@@ -1,4 +1,3 @@
-//Element Valies
 const colorDisplay = document.getElementById('colorDisplay')
 const predictionResult = document.getElementById('server-prediction-result')
 
@@ -8,17 +7,87 @@ var colorPicker = new iro.ColorPicker("#picker", {
 	color: "#f00",
 });
 
-//Application States
 
+var succesful_ping = false
 var client_perceptron_state = {
-  "red": 0.1187515928706572,
-  "green": 0.11714939038223227,
-  "blue": 0.11849347714207387,
-  "bias": 59.20319004735466,
-  "learning_rate": 0.0002
+  "red": 0,
+  "green": 0,
+  "blue": 0,
+  "bias": 0,
+  "learning_rate": 0
 }
 
-//DOM MANUPILATION
+//Changes on the follow scenarios
+//->Inital Connection to server or a reset request
+//-> 
+
+//AD = Actually Dim
+//PB = Predicted Dim
+//AB = Actually Bright
+//PB = Predicted Bright
+
+
+var perceptron_confusion_matrix = {
+  "AD_PB": 0,
+  "AD_PD": 0,
+  "AB_PB": 0,
+  "AB_PD": 0,
+  "AD_Total": 0,
+  "AB_Total": 0,
+  "PB_Total": 0,
+  "PD_Total": 0
+}
+
+var perceptron_confusion_matrix_statistics ={
+  "Accuracy": 0,
+  "BP": 0,
+  "DP": 0,
+  "BR": 0,
+  "DR": 0
+}
+
+
+//----------------Perceptron Result Field Update --------------//
+
+function update_input_stat(test_data_count, training_data_count){
+  //Read the testing, training count, and reflect changes in HTMl
+  return 0
+}
+
+
+function update_confusion_matrix(new_matrix_dictionary){
+  //Reads the matrix dictionary, and reflect changes in HTML 
+  return 0
+}
+
+function update_statistics_matrix(perceptron_confusion_matrix_res) {
+  //Updates the statistics dictionary, and reflect changes in HTML 
+  return 0
+}
+
+function update_perceptron_state(new_client_perceptron_state){
+  //Updates the NN State fields in front-end
+
+}
+
+//--------------------Edit Perceptron---------------------//
+ 
+//Read Training Data.txt -> Verify if valid format and send to server
+//->Response is a new perceptron_state, and an updated training_data_count
+
+
+//Read Batch Data.txt -> Verify if valid format and send to server
+//->Response is binary file type which should be converted to .txt on client side and downloaded.
+
+//Custom Weights, Read the changed weights and apply to perceptron model. Reevaluate NN result with default training/testing file
+
+//Reset -> Refreshes the page -> [reset the perceptron to inital server provided state]
+
+
+
+
+
+
 
 function display_server_results(prediction){
   console.log(prediction)

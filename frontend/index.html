@@ -11,7 +11,7 @@
       </head>
 
     <body>
-        <div class = "app-title">Binary Perceptron - Dim or Bright Color Predictor</div>
+        <div class = "app-title">Single Layer Binary Perceptron - Dim or Bright Color Predictor</div>
         
         <div class = "main-container">
             <div class = "section-1">
@@ -40,49 +40,28 @@
                 </div>
 
                 <div class = "perceptron-result-box">
-                     <div class = "perceptron-result-prompt">Neural Network Prediction</div>
+                     <div class = "perceptron-result-prompt">Perceptron Prediction</div>
                      <div id = "server-prediction-result" class = "perceptron-result">Dim</div>
                 </div>
 
-                
-                <div class = "perceptron-state-box">
-                    <div class = "perceptron-state-prompt">Perceptron State</div>
-                    <div class = "perceptron-state"> 
-                        <div class = "perceptron-state-stat">
-                            <div class = perceptron-state-type>Red</div>
-                            <div id="red-state" class = perceptron-state-value>0.911414</div>
-                        </div>
-                        <div class = "perceptron-state-stat">
-                            <div class = perceptron-state-type>Blue</div>
-                            <div id="blue-state" class = perceptron-state-value>0.291</div>
-                        </div>
-                        <div class = "perceptron-state-stat">
-                            <div class = perceptron-state-type>Green</div>
-                            <div id="green-state" class = perceptron-state-value>0.91</div>
-                        </div>
-                        <div class = "perceptron-state-stat">
-                            <div class = perceptron-state-type>Bias</div>
-                            <div id="bias-state" class = perceptron-state-value>56.8</div>
-                        </div>
-                        <div class = "perceptron-state-stat">
-                            <div class = perceptron-state-type>Learning Rate</div>
-                            <div id="learningrate-state" class = perceptron-state-value>0.0002</div>
-                        </div>
+                <div class = "perceptron-result-box">
+                    <div class = "perceptron-result-prompt">Server Status</div>
+                    <div id = "server-status" class = "perceptron-result">Online</div>
+               </div>
+               
 
-                    </div>
-                </div>
             </div>
 
             <div class = "section-2">
                 <div class="neural-network-result-container">Neural Network Result</div>
                 <div class = "training-data-info-container">
                     <div class = "num-test-case-container">
-                        <div class = "num-test-case-label">Number of Test cases</div>
-                        <div class = "num-of-test-case-val">4</div>
+                        <div class = "num-test-case-label"># Testing Data</div>
+                        <div class = "num-of-test-case-val">5</div>
                     </div>
                     <div class = "num-training-case-container">
-                        <div class = "num-training-case-label">Number of Training data</div>
-                        <div class = "num-of-training-case-val">4</div>
+                        <div class = "num-training-case-label"># Training Data</div>
+                        <div class = "num-of-training-case-val">50</div>
                     </div>
                 </div>
 
@@ -95,28 +74,28 @@
                               <tr>
                                 <th>-</th>
                                 <th>Predicted Bright</th>
-                                <th>Predicted Dark</th>
+                                <th>Predicted Dim</th>
                                 <th>Total</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
                                 <th>Actually Dim</th>
-                                <td>5</td>
-                                <td>7</td>
-                                <td>12</td>
+                                <td id = "PredictedBright_ActuallyDim">5</td>
+                                <td id = "PredictedDim_ActuallyDim">7</td>
+                                <td id = "ActuallyDim_Total">12</td>
                               </tr>
                               <tr">
                                 <th>Actually Bright</th>
-                                <td>Sally</td>
-                                <td>515</td>
-                                <td>213</td>
+                                <td id = "PredictedBright_ActuallyBright">Sally</td>
+                                <td id = "PredictedDim_ActuallyBright">515</td>
+                                <td id = "PredictedBright_Total" >213</td>
                               </tr>
                               <tr>
                                 <th>Total</th>
-                                <td>15</td>
-                                <td>512</td>
-                                <td>12</td>
+                                <td id = "PBAC_Total">15</td>
+                                <td id = "PBAC_Total">512</td>
+                                <td id = "PBAC_Total" >12</td>
                               </tr>
                             </tbody>
                           </table>
@@ -124,30 +103,144 @@
                     </div>
                 </div>
 
-                <div class = "custom-data-container">
-                    <div class = "custom-dataset-labels">
-                        <div class = "custom-param-label">Custom Parameters</div>
-                        <div class = "warning-label">Changes will be applied to the color picker</div>
-                    </div>
-                    
-                    <div class = "upload-container">
-                        <div class = "train-data-upload">
-                            <div class = "train-data-upload-label">Training Data</div>
-                            <button class = "train-data-upload-btn">Select</button>
-                        </div>
-                        
-                        <div class = "test-data-upload">
-                            <div class = "test-data-upload-label">Testing Data</div>
-                            <button class = "test-data-upload-btn">Select</button>
+                <div class = "perceptron-stat">
+                    <div class = "perceptron-state-box">
+                        <div class = "perceptron-state-prompt">NN State</div>
+                        <div class = "perceptron-state"> 
+                            <div class = "perceptron-state-stat">
+                                <div class = perceptron-state-type>Red</div>
+                                <div id="red-state" class = perceptron-state-value>0.911414</div>
+                            </div>
+                            <div class = "perceptron-state-stat">
+                                <div class = perceptron-state-type>Blue</div>
+                                <div id="blue-state" class = perceptron-state-value>0.291</div>
+                            </div>
+                            <div class = "perceptron-state-stat">
+                                <div class = perceptron-state-type>Green</div>
+                                <div id="green-state" class = perceptron-state-value>0.91</div>
+                            </div>
+                            <div class = "perceptron-state-stat">
+                                <div class = perceptron-state-type>Bias</div>
+                                <div id="bias-state" class = perceptron-state-value>56.8</div>
+                            </div>
+                            <div class = "perceptron-state-stat">
+                                <div class = perceptron-state-type>Learning Rate</div>
+                                <div id="learningrate-state" class = perceptron-state-value>0.0002</div>
+                            </div>
+    
                         </div>
                     </div>
     
-                    <div class = "bottom-container">
-                        <div class = "data-format-note">Note: Input Data must follow the specified format as stated on github</div>
-                        <button class = "custom-data-percep">Run</button>
+                    <div class = "perceptron-stat-box">
+                        <div class = "perceptron-state-prompt">Statistics</div>
+                        <div class = "perceptron-state"> 
+                            <div class = "perceptron-state-stat">
+                                <div class = perceptron-state-type>Accuracy</div>
+                                <div id="red-state" class = perceptron-state-value>0.911414</div>
+                            </div>
+                            <div class = "perceptron-state-stat">
+                                <div class = perceptron-state-type>Bright Precision</div>
+                                <div id="blue-state" class = perceptron-state-value>0.291</div>
+                            </div>
+                            <div class = "perceptron-state-stat">
+                                <div class = perceptron-state-type>Dim Precision</div>
+                                <div id="green-state" class = perceptron-state-value>0.91</div>
+                            </div>
+                            <div class = "perceptron-state-stat">
+                                <div class = perceptron-state-type>Bright Recall</div>
+                                <div id="bias-state" class = perceptron-state-value>56.8</div>
+                            </div>
+                            <div class = "perceptron-state-stat">
+                                <div class = perceptron-state-type>Dim Recall</div>
+                                <div id="learningrate-state" class = perceptron-state-value>0.0002</div>
+                            </div>
+    
+                        </div>
+                    </div>
+
+                </div>
+
+                
+
+
+           </div>
+
+           <div class = "section-3">
+            <div class="neural-network-result-container">Edit Perceptron</div>
+     
+
+            
+            
+            <div class = "custom-data-container">
+                <div class = "custom-dataset-labels">
+                    <div class = "custom-param-label">Train Model</div>
+                    <div class = "warning-label">Start in a random state and train using dataset</div>
+                </div>
+                <div class = "upload-container">
+                    <div class = "test-data-upload">
+                        <div class = "test-data-upload-label">Training Data</div>
+                        <button class = "test-data-upload-btn">Select</button>
+                        <button class = "custom-data-percep">Train</button>
                     </div>
                 </div>
-           </div>
+          
+            </div>
+
+
+            <div class = "custom-data-container">
+                <div class = "custom-dataset-labels">
+                    <div class = "custom-param-label">Run Batch Test</div>
+                    <div class = "warning-label">Evaluate a batch of color values</div>
+                </div>
+                <div class = "upload-container">
+                    <div class = "test-data-upload">
+                        <div class = "test-data-upload-label">Testing Data</div>
+                        <button class = "test-data-upload-btn">Select</button>
+                        <button class = "custom-data-percep">Run Batch Test</button>
+                    </div>
+                </div>
+                
+
+                <div class = "perceptron-edit-box">
+                    <div class = "perceptron-state-prompt-custom-weight">Custom Perceptron Weights</div>
+                    <div class = "perceptron-state"> 
+                        <div class = "perceptron-state-stat">
+                            <div class = perceptron-state-type>Red</div>
+                            <input type="text" class="perceptron-state-value-input" placeholder="0.914441"/>
+
+                        </div>
+                        <div class = "perceptron-state-stat">
+                            <div class = perceptron-state-type>Green</div>
+                            <input type="text" class="perceptron-state-value-input" placeholder="0.291"/>
+                        </div>
+                        <div class = "perceptron-state-stat">
+                            <div class = perceptron-state-type>Blue</div>
+                            <input type="text" class="perceptron-state-value-input" placeholder="0.91"/>
+        
+                        </div>
+                        <div class = "perceptron-state-stat">
+                            <div class = perceptron-state-type>Bias</div>
+                            <input type="text" class="perceptron-state-value-input" placeholder="0.91"/>
+                        </div>
+                        <div class = "perceptron-state-stat">
+                            <div class = perceptron-state-type>Learning Rate</div>
+                            <input type="text" class="perceptron-state-value-input" placeholder="0.91"/>
+                        </div>
+                    </div>
+
+                    <div class = "perceptron-edit-button-options">
+                        <button class = "custom-data-percep">Set</button>
+                        <button class = "custom-data-percep">Reset</button>
+                    </div>
+                </div>
+
+
+                
+            </div>
+
+       </div>
+
+
         </div>    
     </body>
 
