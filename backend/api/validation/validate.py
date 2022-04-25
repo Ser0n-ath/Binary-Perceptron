@@ -5,12 +5,15 @@ def validate_test_data(): #???
     pass
 
 
-
 def validate_evaluator_input(req: dict)->bool:
     #Precondition: Req-> perceptron state, and color to evaluate. 
     pass
 
+def validate_training_data(data: dict) -> bool:
+    #All the training/testing data is valid.
+    pass
 
+    
 #Validate 
 def validate_perceptron_state(perceptron_state: dict) -> bool:
     #Verify if they are of type float//int
