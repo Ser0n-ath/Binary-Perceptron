@@ -4,7 +4,7 @@ class DataPoint:
         self.blue = blue
         self.green = green
         self.expectedTruthValue = expectedTruthValue
-        self.predictedTruthValue = -1
+        self.predictedTruthValue = 0
     
     def to_dict(self) -> dict:
         return{
@@ -12,4 +12,5 @@ class DataPoint:
             'blue': self.blue,
             'green': self.green,
             'expectedTruthValue': self.expectedTruthValue,
+            'predictedTruthValue': self.predictedTruthValue
         }
