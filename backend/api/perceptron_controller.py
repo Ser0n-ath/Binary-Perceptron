@@ -6,6 +6,9 @@ import api.constants as CONSTANT
 import api.validation.validate as validate
 import api.data_controller as dataController
 
+
+
+
 def init_state() -> dict: #Returns the standard perceptron. 
     state = PerceptronState(CONSTANT.PRETRAINED_RED, CONSTANT.PRETRAINED_GREEN, CONSTANT.PRETRAINED_BLUE, CONSTANT.PRETRAINED_BIAS, CONSTANT.DEFAULT_LEARNING_RATE).to_dict()
     return {"perceptron_state": state}
@@ -26,18 +29,20 @@ def eval_color(request: dict) -> dict:
         server_response =  perceptron.feed_forward(color,state)
         return {"prediction":server_response}
     else:
-        return "Error: Input failure @: " + "valid mode: " + str(valid_model) + " or valid color: " + str(valid_color)
+        return "Error: Input failure @: " + "invalid model: " + str(valid_model) + " or invalid color: " + str(valid_color)
 
-def confusion_matrix(request: dict) -> dict:
-    valid_model = validate.validate_perceptron_state(request) #Merge  & Implement
-    valid_training = validate.validate_training_data(request) 
 
-    valid_model = True
-    valid_color = True
 
-    if(valid_model and valid_color):
-        state_dict = request['perceptron_state']
-        state = PerceptronState(state_dict['red'], state_dict['green'], state_dict['blue'], state_dict['bias'], state_dict['learning_rate'])
-        testing_data = dataController.default_training_generate()
-        return {"testing_data": state.to_dict}
+def perceptron_stats_result(request: dict, result_type: str) -> dict:
+    #Reads in a perceptron state
+    #state_dict = request['perceptron_state']
+    #state = PerceptronState(state_dict['red'], state_dict['green'], state_dict['blue'], state_dict['bias'], state_dict['learning_rate'])
+
+    if(result_type == CONSTANT.CUSTOM_FILE):
+        pass
+   
+    #Choose default file
+    result = dataController.read_default_training_data()
+    print(result)
+    return {"training_array": str(result)}
 
