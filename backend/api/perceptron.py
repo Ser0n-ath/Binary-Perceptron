@@ -4,7 +4,9 @@ from api.models.perceptron_state import PerceptronState
 def feed_forward(color: DataPoint, state: PerceptronState) -> int:
     weighted_sum = state.red_weight * color.red + state.blue_weight * color.blue + state.green_weight * color.green
     if(weighted_sum < state.bias):
+        color.predictedTruthValue = -1
         return -1
+    color.predictedTruthValue = 1
     return 1
 
 def learning_supervisor(predicted_outcome: int, correct_outcome: int) -> bool:
@@ -26,9 +28,3 @@ def perceptron_train(init_state: PerceptronState, colors: list) -> PerceptronSta
         else:
             update(color, init_state)
     return init_state
-
-def perceptron_evaluate(state: PerceptronState, colors: list) -> list:
-    for color in colors:
-        predicted_outcome = feed_forward(color, state)
-        color.predictedTruthValue = predicted_outcome
-    return color

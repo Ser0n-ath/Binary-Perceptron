@@ -41,15 +41,23 @@ def evaluate():
 
 @api.route('/get-perceptron-status', methods=['GET', 'POST'])
 def get_perceptron_status():
-    #If its a get request provide the status of the premade model with premade training set.
+    # -> Get # Testing Data, Training Data
+    # -> Get Perceptron Confusion Matrix on Test Dataset (Requires Testing Data + Perceptron State) => Matrix + statistics
+    # -> Get NN State[Not required]
 
-    response = controller.perceptron_stats_result(1, CONSTANT.DEFAULT_FILE)
+
+
+
+    #If its a get request provide the status of the premade model with premade training set.
+    if(request.is_json == False):
+        return "Invalid Request Header. Payload not json format."
+    #Do checks on json input
+    client_request = request.get_json()
 
     if flask.request.method == 'GET': #Use default training set. 
-        #Read perceptron state
-        #Run test cases 
-        #return
+        response = controller.perceptron_stats_result(client_request, CONSTANT.DEFAULT_FILE)
+
         return response
         
-
+    response = controller.perceptron_stats_result(client_request, CONSTANT.DEFAULT_FILE)
     return response
