@@ -14,3 +14,7 @@ CUSTOM_FILE = 1
 
 #Pathways
 DEFAULT_PATH_TRAINING_FILE = './api/dataset/training_data.txt'
+
+#Training File Information:
+DEFAULT_NUM_TRAINING_FILE = 1000
+DEFAULT_NUM_TESTING_FILE = 100
