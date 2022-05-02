@@ -10,7 +10,7 @@ import api.data_controller as dataController
 
 
 def init_state() -> dict: #Returns the standard perceptron. 
-    state = PerceptronState(CONSTANT.PRETRAINED_RED, CONSTANT.PRETRAINED_GREEN, CONSTANT.PRETRAINED_BLUE, CONSTANT.PRETRAINED_BIAS, CONSTANT.DEFAULT_LEARNING_RATE).to_dict()
+    state = PerceptronState(round(CONSTANT.PRETRAINED_RED,8), round(CONSTANT.PRETRAINED_GREEN, 6), round(CONSTANT.PRETRAINED_BLUE,6), round(CONSTANT.PRETRAINED_BIAS,8), round(CONSTANT.DEFAULT_LEARNING_RATE,8)).to_dict()
     return {"perceptron_state": state}
 
 def eval_color(request: dict) -> dict:
@@ -43,6 +43,7 @@ def perceptron_stats_result(request: dict, result_type: str) -> dict:
     #Reads in a perceptron state
     state_dict = request['perceptron_state']
     state = PerceptronState(state_dict['red'], state_dict['green'], state_dict['blue'], state_dict['bias'], state_dict['learning_rate'])
+    #print("\n\nPerceptron: #:" +  str(state.to_dict()))
     dataset = None 
     confusion_matrix = {"PredictedBright_ActuallyDim": 0, "PredictedDim_ActuallyDim":0, "ActuallyDim":0, "PredictedBright_ActuallyBright": 0, 
     "PredictedDim_ActuallyBright": 0, "ActualBright":0, "PredictedBright_Total":0, "PredictedDim_Total":0, "TestCases_Total": 0}
@@ -56,9 +57,13 @@ def perceptron_stats_result(request: dict, result_type: str) -> dict:
 
     #Run an evaluation on all items
     for data_point_item in dataset:
-        print(str(data_point_item)) 
         data_point = DataPoint(float(data_point_item["red"]), float(data_point_item["green"]), float(data_point_item["blue"]), float(data_point_item["expectedTruthValue"])) 
-        perceptron.feed_forward(data_point, state)
+        print("\n")
+        print(data_point.to_dict())
+        perceptron.feed_forward(data_point,state)
+        print(data_point.to_dict())
+        print("\n")
+
         if(data_point.expectedTruthValue == 1): 
             if(data_point.predictedTruthValue == 1):
                 confusion_matrix["PredictedBright_ActuallyBright"] += 1 
@@ -74,14 +79,21 @@ def perceptron_stats_result(request: dict, result_type: str) -> dict:
 
     confusion_matrix["ActuallyDim"] = confusion_matrix["PredictedBright_ActuallyDim"] + confusion_matrix["PredictedDim_ActuallyDim"]
     confusion_matrix["ActualBright"] = confusion_matrix["PredictedBright_ActuallyBright"] + confusion_matrix["PredictedDim_ActuallyBright"]
+
     confusion_matrix["PredictedDim_Total"] = confusion_matrix["PredictedDim_ActuallyDim"] + confusion_matrix["PredictedDim_ActuallyBright"]
     confusion_matrix["PredictedBright_Total"] = confusion_matrix["PredictedBright_ActuallyBright"] + confusion_matrix["PredictedBright_ActuallyDim"]
+
     statistic_result = generate_statistics(statistic_result,confusion_matrix)
     return {"confusion_matrix": confusion_matrix, "statistics_dataset": statistic_result}
 
 
 
 def generate_statistics(statistics: dict, confusion_matrix: dict) -> dict:
+    #Make sure perceptrons in good state? 
+    #-> Error checking
+    print("\n\n\n")
+    print(confusion_matrix)
+    print("\n\n\n")
     statistics["Accuracy"] = round((confusion_matrix["PredictedBright_ActuallyBright"] + confusion_matrix["PredictedDim_ActuallyDim"]) / confusion_matrix["TestCases_Total"],2) * 100.0
     #Precisions = True Positive / Total Predicted Positive
     statistics["BrightPrecision"] = round(confusion_matrix["PredictedBright_ActuallyBright"] / confusion_matrix["PredictedBright_Total"],3) * 100.0
@@ -90,23 +102,3 @@ def generate_statistics(statistics: dict, confusion_matrix: dict) -> dict:
     statistics["BrightRecall"] = round(confusion_matrix["PredictedBright_ActuallyBright"] / confusion_matrix["ActualBright"],3) * 100.0
     statistics["DimRecall"] =  round(confusion_matrix["PredictedDim_ActuallyDim"] / confusion_matrix["ActuallyDim"],3) * 100.0
     return statistics
-
-
-
-
-
-
-
-
-
-
-
-
-   
-    
-
-
-
-    print(result)
-    return {"training_array": str(result)}
-
