@@ -41,12 +41,12 @@
 
                 <div class = "perceptron-result-box">
                      <div class = "perceptron-result-prompt">Perceptron Prediction</div>
-                     <div id = "server-prediction-result" class = "perceptron-result">Dim</div>
+                     <div id = "server-prediction-result" class = "perceptron-result">NaN</div>
                 </div>
 
                 <div class = "perceptron-result-box">
                     <div class = "perceptron-result-prompt">Server Status</div>
-                    <div id = "server-status" class = "perceptron-result">Online</div>
+                    <div id = "server-status" class = "perceptron-result">Offline</div>
                </div>
                
 
@@ -57,11 +57,11 @@
                 <div class = "training-data-info-container">
                     <div class = "num-test-case-container">
                         <div class = "num-test-case-label"># Testing Data</div>
-                        <div class = "num-of-test-case-val">5</div>
+                        <div id = "testing-data-count" class = "num-of-test-case-val">-</div>
                     </div>
                     <div class = "num-training-case-container">
                         <div class = "num-training-case-label"># Training Data</div>
-                        <div class = "num-of-training-case-val">50</div>
+                        <div id = "training-data-count" class = "num-of-training-case-val">-</div>
                     </div>
                 </div>
 
@@ -79,23 +79,23 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <th>Actually Dim</th>
-                                <td id = "PredictedBright_ActuallyDim">5</td>
-                                <td id = "PredictedDim_ActuallyDim">7</td>
-                                <td id = "ActuallyDim_Total">12</td>
-                              </tr>
                               <tr">
                                 <th>Actually Bright</th>
-                                <td id = "PredictedBright_ActuallyBright">Sally</td>
-                                <td id = "PredictedDim_ActuallyBright">515</td>
-                                <td id = "PredictedBright_Total" >213</td>
+                                <td id = "PredictedBright_ActuallyBright">-</td>
+                                <td id = "PredictedDim_ActuallyBright">-</td>
+                                <td id = "ActuallyBright_Total" >-</td>
+                              </tr>
+                              <tr>
+                                <th>Actually Dim</th>
+                                <td id = "PredictedBright_ActuallyDim">-</td>
+                                <td id = "PredictedDim_ActuallyDim">-</td>
+                                <td id = "ActuallyDim_Total">-</td>
                               </tr>
                               <tr>
                                 <th>Total</th>
-                                <td id = "PBAC_Total">15</td>
-                                <td id = "PBAC_Total">512</td>
-                                <td id = "PBAC_Total" >12</td>
+                                <td id = "PB_Total">-</td>
+                                <td id = "PD_Total">-</td>
+                                <td id = "Total_Dataset_count" >-</td>
                               </tr>
                             </tbody>
                           </table>
@@ -109,23 +109,23 @@
                         <div class = "perceptron-state"> 
                             <div class = "perceptron-state-stat">
                                 <div class = perceptron-state-type>Red</div>
-                                <div id="red-state" class = perceptron-state-value>0.911414</div>
+                                <div id="red-state" class = perceptron-state-value>-</div>
                             </div>
                             <div class = "perceptron-state-stat">
                                 <div class = perceptron-state-type>Blue</div>
-                                <div id="blue-state" class = perceptron-state-value>0.291</div>
+                                <div id="blue-state" class = perceptron-state-value>-</div>
                             </div>
                             <div class = "perceptron-state-stat">
                                 <div class = perceptron-state-type>Green</div>
-                                <div id="green-state" class = perceptron-state-value>0.91</div>
+                                <div id="green-state" class = perceptron-state-value>-</div>
                             </div>
                             <div class = "perceptron-state-stat">
                                 <div class = perceptron-state-type>Bias</div>
-                                <div id="bias-state" class = perceptron-state-value>56.8</div>
+                                <div id="bias-state" class = perceptron-state-value>-</div>
                             </div>
                             <div class = "perceptron-state-stat">
                                 <div class = perceptron-state-type>Learning Rate</div>
-                                <div id="learningrate-state" class = perceptron-state-value>0.0002</div>
+                                <div id="learningrate-state" class = perceptron-state-value>-</div>
                             </div>
     
                         </div>
@@ -136,23 +136,23 @@
                         <div class = "perceptron-state"> 
                             <div class = "perceptron-state-stat">
                                 <div class = perceptron-state-type>Accuracy</div>
-                                <div id="red-state" class = perceptron-state-value>0.911414</div>
+                                <div id="accuracy" class = perceptron-state-value>-</div>
                             </div>
                             <div class = "perceptron-state-stat">
                                 <div class = perceptron-state-type>Bright Precision</div>
-                                <div id="blue-state" class = perceptron-state-value>0.291</div>
+                                <div id="bright_precision" class = perceptron-state-value>-</div>
                             </div>
                             <div class = "perceptron-state-stat">
                                 <div class = perceptron-state-type>Dim Precision</div>
-                                <div id="green-state" class = perceptron-state-value>0.91</div>
+                                <div id="dim_precision" class = perceptron-state-value>-</div>
                             </div>
                             <div class = "perceptron-state-stat">
                                 <div class = perceptron-state-type>Bright Recall</div>
-                                <div id="bias-state" class = perceptron-state-value>56.8</div>
+                                <div id="bright_recall" class = perceptron-state-value>-</div>
                             </div>
                             <div class = "perceptron-state-stat">
                                 <div class = perceptron-state-type>Dim Recall</div>
-                                <div id="learningrate-state" class = perceptron-state-value>0.0002</div>
+                                <div id="dim_recall" class = perceptron-state-value>-</div>
                             </div>
     
                         </div>

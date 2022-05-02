@@ -54,10 +54,6 @@ def get_perceptron_status():
     #Do checks on json input
     client_request = request.get_json()
 
-    if flask.request.method == 'GET': #Use default training set. 
-        response = controller.perceptron_stats_result(client_request, CONSTANT.DEFAULT_FILE)
 
-        return response
-        
     response = controller.perceptron_stats_result(client_request, CONSTANT.DEFAULT_FILE)
     return response
