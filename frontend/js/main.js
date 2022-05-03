@@ -1,3 +1,9 @@
+var colorPicker = new iro.ColorPicker("#picker", {
+	width: 220,
+	color: "#f00",
+});
+
+
 //---------------------------Selection DOM elements-----------------------------//
 const colorDisplay = document.getElementById('colorDisplay');
 const predictionResult = document.getElementById('server-prediction-result');
@@ -39,15 +45,29 @@ const perceptronBrightRecall = document.getElementById('bright_recall');
 const perceptronDimRecall = document.getElementById('dim_recall');
 
 
+
+
 //------------------------Edit Perceptron DOM elements ------------------------//
-//-> add later
+//-> Train Model Btn
+const selectTrainingFileBtn = document.getElementById('select-training-file-btn');
+const runTrainingFileBtn = document.getElementById('run-training-file-btn');
+
+//->Batch Test Models
+const selectBatchTestFileBtn = document.getElementById('select-batch-test-file-btn');
+const runBatchTestFileBtn = document.getElementById('run-batch-test-file');
+
+//-> Custom Perceptron WeightSelections Boxs & Buttons
+const newRedValueBox = document.getElementById('new-red-value');
+const newBlueValueBox = document.getElementById('new-blue-value');
+const newGreenValueBox = document.getElementById('new-green-value');
+const newBiasValueBox = document.getElementById('new-bias-value');
+const newLearningRateBox = document.getElementById('new-learning-rate-value');
+const setValues = document.getElementById('enter-new-perceptron-state-btn');
+
+const resetAll = document.getElementById('reset-perceptron-filedataset-btn');
 
 
-var colorPicker = new iro.ColorPicker("#picker", {
-	width: 220,
-	color: "#f00",
-});
-
+//->
 
 //----------------------- Application States -----------------------------------//
 
@@ -90,7 +110,6 @@ var dataset_size = {
 //-------------------DOM writers-----------------------//
 /*Rewrites all the dom values to the current result*/
 function dom_rewrite_network_results() {
-
 	//Update Testing Data/Training Data values
 	testingDataCount.innerHTML = perceptron_confusion_matrix["Total_Tests"]
 	trainingDataCount.innerHTML = dataset_size.training_data
@@ -101,7 +120,7 @@ function dom_rewrite_network_results() {
 	 actuallyBrightTotal.innerHTML = perceptron_confusion_matrix["AB_Total"]
 	 actuallyDimPredictedBright.innerHTML = perceptron_confusion_matrix["AD_PB"]
 	 actuallyDimPredictedDim.innerHTML = perceptron_confusion_matrix["AD_PD"]
-   actuallyDimTotal.innerHTML = perceptron_confusion_matrix["AD_Total"]
+   	 actuallyDimTotal.innerHTML = perceptron_confusion_matrix["AD_Total"]
 	 predictedBrightTotal.innerHTML = perceptron_confusion_matrix["PB_Total"]
 	 predictedDimTotal.innerHTML = perceptron_confusion_matrix["PD_Total"]
 	 totalTestData.innerHTML = perceptron_confusion_matrix["Total_Tests"]
@@ -121,14 +140,6 @@ function dom_rewrite_network_results() {
 	 perceptronDimPrecision.innerHTML = perceptron_confusion_matrix_statistics["DP"]
 	 perceptronBrightRecall.innerHTML = perceptron_confusion_matrix_statistics["BR"]
 	 perceptronDimRecall.innerHTML = perceptron_confusion_matrix_statistics["DR"]
-	//Update Confusion matrix values
-
-
-	//Update NN State values
-
-	//Update Statistics values
-
-
 }
 
 
@@ -222,8 +233,24 @@ function display_server_results(prediction) {
 }
 
 
-//Fetch function
 
+function read_values(){
+	//Read input
+	var red_input = newRedValueBox.value.trim()
+	var blue_input = newBlueValueBox.value.trim()  
+	var green_input = newGreenValueBox.value.trim()   
+	var bias_input = newBiasValueBox.value.trim()  
+	var learning_rate_input = newLearningRateBox.value.trim()   
+
+	console.log("Clicked!")
+	console.log(red_input, blue_input, green_input, bias_input, learning_rate_input)
+	console.log(!(red_input), blue_input, green_input, bias_input, learning_rate_input)
+}
+
+setValues.addEventListener("click", read_values)
+
+
+//Fetch function
 function evaluateColor(color) {
 	payload = {
 		color: {
