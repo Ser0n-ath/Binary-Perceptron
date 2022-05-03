@@ -169,8 +169,7 @@
             <div class="neural-network-result-container">Edit Perceptron</div>
      
 
-            
-            
+
             <div class = "custom-data-container">
                 <div class = "custom-dataset-labels">
                     <div class = "custom-param-label">Train Model</div>
@@ -179,8 +178,8 @@
                 <div class = "upload-container">
                     <div class = "test-data-upload">
                         <div class = "test-data-upload-label">Training Data</div>
-                        <button class = "test-data-upload-btn">Select</button>
-                        <button class = "custom-data-percep">Train</button>
+                        <button id = "select-training-file-btn" class = "test-data-upload-btn">Select</button>
+                        <button id = "run-training-file-btn" class = "custom-data-percep">Train</button>
                     </div>
                 </div>
           
@@ -195,8 +194,8 @@
                 <div class = "upload-container">
                     <div class = "test-data-upload">
                         <div class = "test-data-upload-label">Testing Data</div>
-                        <button class = "test-data-upload-btn">Select</button>
-                        <button class = "custom-data-percep">Run Batch Test</button>
+                        <button id = "select-batch-test-file-btn" class = "test-data-upload-btn">Select</button>
+                        <button id = "run-batch-test-file" class = "custom-data-percep">Run Batch Test</button>
                     </div>
                 </div>
                 
@@ -206,31 +205,31 @@
                     <div class = "perceptron-state"> 
                         <div class = "perceptron-state-stat">
                             <div class = perceptron-state-type>Red</div>
-                            <input type="text" class="perceptron-state-value-input" placeholder="0.914441"/>
+                            <input type="text" id = "new-red-value" class="perceptron-state-value-input" placeholder="0.914441"/>
 
                         </div>
                         <div class = "perceptron-state-stat">
                             <div class = perceptron-state-type>Green</div>
-                            <input type="text" class="perceptron-state-value-input" placeholder="0.291"/>
+                            <input type="text" id ="new-green-value" class="perceptron-state-value-input" placeholder="0.291"/>
                         </div>
                         <div class = "perceptron-state-stat">
                             <div class = perceptron-state-type>Blue</div>
-                            <input type="text" class="perceptron-state-value-input" placeholder="0.91"/>
+                            <input type="text" id ="new-blue-value" class="perceptron-state-value-input" placeholder="0.91"/>
         
                         </div>
                         <div class = "perceptron-state-stat">
                             <div class = perceptron-state-type>Bias</div>
-                            <input type="text" class="perceptron-state-value-input" placeholder="0.91"/>
+                            <input type="text" id ="new-bias-value" class="perceptron-state-value-input" placeholder="0.91"/>
                         </div>
                         <div class = "perceptron-state-stat">
                             <div class = perceptron-state-type>Learning Rate</div>
-                            <input type="text" class="perceptron-state-value-input" placeholder="0.91"/>
+                            <input type="text" id ="new-learning-rate-value" class="perceptron-state-value-input" placeholder="0.91"/>
                         </div>
                     </div>
 
                     <div class = "perceptron-edit-button-options">
-                        <button class = "custom-data-percep">Set</button>
-                        <button class = "custom-data-percep">Reset All</button>
+                        <button id ="enter-new-perceptron-state-btn" class = "custom-data-percep">Set</button>
+                        <button id = "reset-perceptron-filedataset-btn" class = "custom-data-percep">Reset All</button>
                     </div>
                 </div>
 
