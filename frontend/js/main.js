@@ -121,7 +121,7 @@ function dom_rewrite_network_results() {
 	 actuallyDimPredictedBright.innerHTML = perceptron_confusion_matrix["AD_PB"]
 	 actuallyDimPredictedDim.innerHTML = perceptron_confusion_matrix["AD_PD"]
    	 actuallyDimTotal.innerHTML = perceptron_confusion_matrix["AD_Total"]
-	 predictedBrightTotal.innerHTML = perceptron_confusion_matrix["PB_Total"]
+	 predictedBrightTotal.innerHTML = perceptron_confusion_matrix["PB_Total"]  
 	 predictedDimTotal.innerHTML = perceptron_confusion_matrix["PD_Total"]
 	 totalTestData.innerHTML = perceptron_confusion_matrix["Total_Tests"]
 
@@ -161,6 +161,9 @@ function fetch_inital_perceptron() {
 			client_perceptron_state["bias"] = data["bias"]
 			client_perceptron_state["learning_rate"] = data["learning_rate"]
 			fetch_inital_network_result()
+		}).catch(error => {
+			console.log("An error has occured");
+			console.log(error);
 		})
 }
 
@@ -199,10 +202,9 @@ function fetch_inital_network_result() {
 			perceptron_confusion_matrix["AB_Total"] = data["confusion_matrix"]["ActualBright"]
 			perceptron_confusion_matrix["PB_Total"] = data["confusion_matrix"]["PredictedBright_Total"]
 			perceptron_confusion_matrix["PD_Total"] = data["confusion_matrix"]["PredictedDim_Total"]
-      perceptron_confusion_matrix["Total_Tests"] = data["confusion_matrix"]["TestCases_Total"]
-
-      dom_rewrite_network_results()
-		})
+      		perceptron_confusion_matrix["Total_Tests"] = data["confusion_matrix"]["TestCases_Total"]
+      	dom_rewrite_network_results()
+		}).catch(error => {console.log("Error has occured in fetching statistics and confusiong matrix results"); console.log(error)} )
 }
 
 
@@ -232,8 +234,33 @@ function display_server_results(prediction) {
 
 }
 
+//--------------------------------------------------------------------------------//
+//Train Model
+
+function select_training_file(){
+	console.log("Select training file");
+}
+selectTrainingFileBtn.addEventListener("click", select_training_file);
+
+function run_training_on_file(){
+	console.log("Running training on file");
+}
+runTrainingFileBtn.addEventListener("click", run_training_on_file);
 
 
+function select_batch_test_file(){
+	console.log("Select batch file");
+}
+
+selectBatchTestFileBtn.addEventListener("click", select_batch_test_file);
+
+function run_batch_on_file(){
+	console.log("Running batch test on file");
+}
+
+runBatchTestFileBtn.addEventListener("click", run_batch_on_file);
+
+//--------------------------------------------------------------------------------//
 function read_values(){
 	//Read input
 	var red_input = newRedValueBox.value.trim()
@@ -249,6 +276,15 @@ function read_values(){
 
 setValues.addEventListener("click", read_values)
 
+
+
+function reset(){
+	console.log("Reset")
+}
+
+resetAll.addEventListener("click", reset)
+
+//-----------------------------------------------------------------------------------/
 
 //Fetch function
 function evaluateColor(color) {
