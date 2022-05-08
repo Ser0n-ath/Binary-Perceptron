@@ -166,8 +166,25 @@
            </div>
 
            <div class = "section-3">
-            <div class="neural-network-result-container">Edit Perceptron</div>
-     
+            
+            <div class = "section-3-header">
+                <div class="neural-network-result-container">Edit Perceptron</div>
+
+            <div class ="file-selection-indicator">
+                <div class="file-selection-type">
+                    <div class="trainging-data-name">Training File: DEFAULT</div>
+                    <label>X</label>
+                </div>
+                <div class="file-selection-type">
+                    <div class="trainging-data-name">Batch File Dataset: DEFAULT</div>
+                    <label>X</label>
+                </div>
+            </div>
+            
+
+
+            </div>
+            
 
 
             <div class = "custom-data-container">
@@ -178,8 +195,14 @@
                 <div class = "upload-container">
                     <div class = "test-data-upload">
                         <div class = "test-data-upload-label">Training Data</div>
-                        <button id = "select-training-file-btn" class = "test-data-upload-btn">Select</button>
+
+                        <div>
+                            <label for = "select-training-file-btn" class = "test-data-upload-btn">Select File</label>
+                            <input style ="display:none" type ="file" id = "select-training-file-btn" accept = ".txt"/>
+                        </div>
+
                         <button id = "run-training-file-btn" class = "custom-data-percep">Train</button>
+
                     </div>
                 </div>
           
@@ -194,8 +217,16 @@
                 <div class = "upload-container">
                     <div class = "test-data-upload">
                         <div class = "test-data-upload-label">Testing Data</div>
-                        <button id = "select-batch-test-file-btn" class = "test-data-upload-btn">Select</button>
+                
+                        <div>
+                            <label for = "select-batch-test-file-btn" class = "test-data-upload-btn">Select File</label>
+                            <input style ="display:none" type ="file" id = "select-batch-test-file-btn" accept = ".txt"/>
+                        </div>
+
                         <button id = "run-batch-test-file" class = "custom-data-percep">Run Batch Test</button>
+
+
+
                     </div>
                 </div>
                 
