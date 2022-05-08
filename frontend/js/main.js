@@ -237,17 +237,38 @@ function display_server_results(prediction) {
 //--------------------------------------------------------------------------------//
 //Train Model
 
-function select_training_file(){
-	console.log("Select training file");
+//Reads a string type, validate content  
+function validate_run_training_file(){
+
 }
-selectTrainingFileBtn.addEventListener("click", select_training_file);
+
+
+selectTrainingFileBtn.addEventListener("change", select_training_file);
+function select_training_file(){
+	var file = selectTrainingFileBtn.files[0];
+	let reader = new FileReader();
+	reader.readAsText(file);
+	reader.onload = function(){
+		console.log(typeof(reader.result));
+		validate_run_training_file(reader.result);
+	}
+
+	reader.onerror = function(){
+		console.log(reader.error);
+	}
+
+}
+
 
 function run_training_on_file(){
 	console.log("Running training on file");
 }
+
+
+
 runTrainingFileBtn.addEventListener("click", run_training_on_file);
 
-
+//Batch files
 function select_batch_test_file(){
 	console.log("Select batch file");
 }

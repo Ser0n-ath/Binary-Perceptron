@@ -395,10 +395,10 @@ body{
     margin-top: 28px;
 }
 
-button.custom-data-percep{
+.custom-data-percep{
+ 
     height: 40px;
     width: 140px;
-
     margin-right: 32px;
     border: none;
     font-size: 14px;
@@ -407,8 +407,9 @@ button.custom-data-percep{
     background-color: #3751FF;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.20);
     border-radius: 10px;
-  
 }
+
+
 button.custom-data-percep:hover{
     background-color:  #576dff;
 }
@@ -419,7 +420,11 @@ button.custom-data-percep:active {
 
 
 .train-data-upload-btn, .test-data-upload-btn{
-    margin-right: 36px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 32px;
     height: 40px;
     width: 100px;
     border: none;
@@ -431,10 +436,10 @@ button.custom-data-percep:active {
     border-radius: 10px;
 }
 
-button.train-data-upload-btn:hover, button.test-data-upload-btn:hover{
+label.train-data-upload-btn:hover, label.test-data-upload-btn:hover{
     background-color:  #eb7e17;
 }
-button.train-data-upload-btn:active, button.test-data-upload-btn:active {
+label.train-data-upload-btn:active, label.test-data-upload-btn:active {
     background-color: #ff7b00;
   }
 
@@ -445,4 +450,25 @@ button.train-data-upload-btn:active, button.test-data-upload-btn:active {
     height: 500px;
     display: flex;
     flex-direction: column;
+}
+
+.file-selection-type{
+    display: flex;
+    
+    gap: 5px;
+    margin-top: 8px;
+    color: #9FA2B4;
+    font-size: 12px;
+    margin-left: 28px;
+    
+}
+
+.file-selection-indicator{
+    margin-top: 36px;
+    margin-left: auto;
+    margin-right: 75px;;
+}
+
+.section-3-header{
+    display: flex;
 }
