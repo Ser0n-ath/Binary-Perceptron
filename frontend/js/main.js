@@ -237,9 +237,94 @@ function display_server_results(prediction) {
 //--------------------------------------------------------------------------------//
 //Train Model
 
-//Reads a string type, validate content  
-function validate_run_training_file(){
+//Reads a string type, validate content
 
+function is_valid_data_point(data_point){
+	//Get length, must equal to 4
+	//check if first 3 indexes are integers between 0 to 255
+	//Check if the last index is equal to 1 or -1
+	//O/W return -1
+	//Return 1 if valid
+
+	//Break line into array of chunks.
+	//Chunks should be of size 4. 
+	//All chunk should be type integer
+	//First 3 chuncks are range between [0-255], while last is +1,-1
+	if(data_point.length != 4){
+		return false;
+	}
+	
+	for(var i=0; i<4; i++){
+		let is_int = Number.isInteger(parseInt(data_point[i]));
+
+		if(!is_int){
+			console.log("---------------Start Error---------------")
+			console.log("is_int: " + is_int)
+			console.log(data_point[i] + " " + "Type:" +  typeof(data_point[i]))
+			console.log("Not Integer Type in datafield @:", data_point[i])
+			console.log("-----------------End Error---------------\n")
+			return false;
+		}
+		let data_point_int = parseInt(data_point[i]);
+
+		if(i==3){
+			if(data_point_int != -1 && data_point_int != 1){
+				console.log("<---------------Start Error--------------->")
+				console.log("Invalid point classification: "+  data_point_int)
+				console.log("Was checking the classification type: []")
+				console.log("<-----------------End Error--------------->\n")
+
+				return false;
+			}
+		}else{
+			if(!(0 <= data_point_int && data_point_int <= 255) ){
+				console.log("<---------------Start Error--------------->")
+				console.log("Checking RGB values: @iteration: " + i)
+				console.log("Integer out of range: not in [0,255]: " + data_point_int)
+				console.log("<-----------------End Error--------------->\n")
+				return false;
+			}
+		}
+	}
+	return true
+}
+
+
+
+
+//Perform server side  
+function validate_run_training_file(file_content){
+	//Add check to see if its a valid format
+	//Training file format: [0-255] [0-255] [0-255] (1  -1) (1=Bright, -1=Dim)
+	//Must have 4 integers, first 3 must be between 0 to 255. Last index must be 1 or -1
+	//
+	let valid_line_count = 0 //Bounded by 1000 lines
+	let data_point_set = file_content.trim()
+	data_point_set = file_content.split(/\r?\n/).filter(element => element);
+	let set_size = data_point_set.length
+	let valid_input = true
+	var i = 0;
+	for(;i<set_size;i++){
+		let data_point = data_point_set[i].split(" ")
+		let valid_data_pont = is_valid_data_point(data_point)
+		if(!valid_data_pont){
+			console.log("Bad input @ line " + i)
+			console.log("Line does not follow datapoint specification: <R> <G> <B> <TruthValue>")
+			console.log("Got line: " + data_point + " @ line: " + i)
+			valid_input = false
+			break;
+		}
+	}
+
+	if(!valid_input){
+		console.log("Not sending results to server..");
+		return -1
+	}
+
+	console.log("Good input! Sending for training test..");
+
+	//Add code that sends results to server and 
+	return 1;
 }
 
 
@@ -249,7 +334,6 @@ function select_training_file(){
 	let reader = new FileReader();
 	reader.readAsText(file);
 	reader.onload = function(){
-		console.log(typeof(reader.result));
 		validate_run_training_file(reader.result);
 	}
 
@@ -260,6 +344,8 @@ function select_training_file(){
 }
 
 
+
+
 function run_training_on_file(){
 	console.log("Running training on file");
 }
@@ -268,9 +354,12 @@ function run_training_on_file(){
 
 runTrainingFileBtn.addEventListener("click", run_training_on_file);
 
+
+
+//-------------------------------------------------------------------->
 //Batch files
 function select_batch_test_file(){
-	console.log("Select batch file");
+	console.log("Run batch test")
 }
 
 selectBatchTestFileBtn.addEventListener("click", select_batch_test_file);
