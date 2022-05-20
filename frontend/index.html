@@ -8,22 +8,16 @@
         <link rel = "stylesheet" href = "/frontend/css/style.css" />
         <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
         <title>Binary Perceptron</title>
-      </head>
-
+    </head>
     <body>
         <div class = "app-title">Single Layer Binary Perceptron - Dim or Bright Color Predictor</div>
-        
         <div class = "main-container">
             <div class = "section-1">
-                
                 <div class = "color-picker">
                     <div class = "color-picker-prompt">Select a color shade</div>
                     <div id="picker"></div>
-
                     <div class = "color-selected-container">
-
                         <div id = "colorDisplay" class = "colect-picker-selected"></div>
-
                         <div class = "color-variables">
                             <div class = "color-variables-text">
                                 <div class = "color-variables-red-text">Red</div>
@@ -36,22 +30,16 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-
                 <div class = "perceptron-result-box">
-                     <div class = "perceptron-result-prompt">Perceptron Prediction</div>
-                     <div id = "server-prediction-result" class = "perceptron-result">NaN</div>
+                    <div class = "perceptron-result-prompt">Perceptron Prediction</div>
+                    <div id = "server-prediction-result" class = "perceptron-result">NaN</div>
                 </div>
-
                 <div class = "perceptron-result-box">
                     <div class = "perceptron-result-prompt">Server Status</div>
                     <div id = "server-status" class = "perceptron-result">Offline</div>
-               </div>
-               
-
+                </div>
             </div>
-
             <div class = "section-2">
                 <div class="neural-network-result-container">Neural Network Result</div>
                 <div class = "training-data-info-container">
@@ -64,49 +52,47 @@
                         <div id = "training-data-count" class = "num-of-training-case-val">-</div>
                     </div>
                 </div>
-
                 <div class = "confusion-matrix-container">
                     <div class = "confusion-matrix-title">Perceptron Confusion Matrix On Test Dataset</div>
                     <div class="table-container">
                         <!---Perceptron Confusion matrix Information-->
                         <table class="content-table">
                             <thead>
-                              <tr>
-                                <th>-</th>
-                                <th>Predicted Bright</th>
-                                <th>Predicted Dim</th>
-                                <th>Total</th>
-                              </tr>
+                                <tr>
+                                    <th>-</th>
+                                    <th>Predicted Bright</th>
+                                    <th>Predicted Dim</th>
+                                    <th>Total</th>
+                                </tr>
                             </thead>
                             <tbody>
-                              <tr">
+                                <tr">
                                 <th>Actually Bright</th>
                                 <td id = "PredictedBright_ActuallyBright">-</td>
                                 <td id = "PredictedDim_ActuallyBright">-</td>
                                 <td id = "ActuallyBright_Total" >-</td>
-                              </tr>
-                              <tr>
-                                <th>Actually Dim</th>
-                                <td id = "PredictedBright_ActuallyDim">-</td>
-                                <td id = "PredictedDim_ActuallyDim">-</td>
-                                <td id = "ActuallyDim_Total">-</td>
-                              </tr>
-                              <tr>
-                                <th>Total</th>
-                                <td id = "PB_Total">-</td>
-                                <td id = "PD_Total">-</td>
-                                <td id = "Total_Dataset_count" >-</td>
-                              </tr>
+                                </tr>
+                                <tr>
+                                    <th>Actually Dim</th>
+                                    <td id = "PredictedBright_ActuallyDim">-</td>
+                                    <td id = "PredictedDim_ActuallyDim">-</td>
+                                    <td id = "ActuallyDim_Total">-</td>
+                                </tr>
+                                <tr>
+                                    <th>Total</th>
+                                    <td id = "PB_Total">-</td>
+                                    <td id = "PD_Total">-</td>
+                                    <td id = "Total_Dataset_count" >-</td>
+                                </tr>
                             </tbody>
-                          </table>
-                            <!---Perceptron Confusion matrix Information-->
+                        </table>
+                        <!---Perceptron Confusion matrix Information-->
                     </div>
                 </div>
-
                 <div class = "perceptron-stat">
                     <div class = "perceptron-state-box">
                         <div class = "perceptron-state-prompt">NN State</div>
-                        <div class = "perceptron-state"> 
+                        <div class = "perceptron-state">
                             <div class = "perceptron-state-stat">
                                 <div class = perceptron-state-type>Red</div>
                                 <div id="red-state" class = perceptron-state-value>-</div>
@@ -127,13 +113,11 @@
                                 <div class = perceptron-state-type>Learning Rate</div>
                                 <div id="learningrate-state" class = perceptron-state-value>-</div>
                             </div>
-    
                         </div>
                     </div>
-    
                     <div class = "perceptron-stat-box">
                         <div class = "perceptron-state-prompt">Statistics</div>
-                        <div class = "perceptron-state"> 
+                        <div class = "perceptron-state">
                             <div class = "perceptron-state-stat">
                                 <div class = perceptron-state-type>Accuracy</div>
                                 <div id="accuracy" class = perceptron-state-value>-</div>
@@ -154,126 +138,87 @@
                                 <div class = perceptron-state-type>Dim Recall</div>
                                 <div id="dim_recall" class = perceptron-state-value>-</div>
                             </div>
-    
                         </div>
                     </div>
-
-                </div>
-
-                
-
-
-           </div>
-
-           <div class = "section-3">
-            
-            <div class = "section-3-header">
-                <div class="neural-network-result-container">Edit Perceptron</div>
-
-            <div class ="file-selection-indicator">
-                <div class="file-selection-type">
-                    <div class="trainging-data-name">Training File: DEFAULT</div>
-                    <label>X</label>
-                </div>
-                <div class="file-selection-type">
-                    <div class="trainging-data-name">Batch File Dataset: DEFAULT</div>
-                    <label>X</label>
                 </div>
             </div>
-            
-
-
+            <div class = "section-3">
+                <div class = "section-3-header">
+                    <div class="neural-network-result-container">Edit Perceptron</div>
+                    <div class ="file-selection-indicator">
+                        <div class="file-selection-type">
+                            <div class="trainging-data-name">Training File: DEFAULT</div>
+                            <label>X</label>
+                        </div>
+                        <div class="file-selection-type">
+                            <div class="trainging-data-name">Batch File Dataset: DEFAULT</div>
+                            <label>X</label>
+                        </div>
+                    </div>
+                </div>
+                <div class = "custom-data-container">
+                    <div class = "custom-dataset-labels">
+                        <div class = "custom-param-label">Train Model</div>
+                        <div class = "warning-label">Start in a random state and train using dataset</div>
+                    </div>
+                    <div class = "upload-container">
+                        <div class = "test-data-upload">
+                            <div class = "test-data-upload-label">Training Data</div>
+                            <div>
+                                <label for = "select-training-file-btn" class = "test-data-upload-btn">Select File</label>
+                                <input style ="display:none" type ="file" id = "select-training-file-btn" accept = ".txt"/>
+                            </div>
+                            <button id = "run-training-file-btn" class = "custom-data-percep">Train</button>
+                        </div>
+                    </div>
+                </div>
+                <div class = "custom-data-container">
+                    <div class = "custom-dataset-labels">
+                        <div class = "custom-param-label">Run Batch Test</div>
+                        <div class = "warning-label">Evaluate a batch of color values</div>
+                    </div>
+                    <div class = "upload-container">
+                        <div class = "test-data-upload">
+                            <div class = "test-data-upload-label">Testing Data</div>
+                            <div>
+                                <label for = "select-batch-test-file-btn" class = "test-data-upload-btn">Select File</label>
+                                <input style ="display:none" type ="file" id = "select-batch-test-file-btn" accept = ".txt"/>
+                            </div>
+                            <button id = "run-batch-test-file" class = "custom-data-percep">Run Batch Test</button>
+                        </div>
+                    </div>
+                    <div class = "perceptron-edit-box">
+                        <div class = "perceptron-state-prompt-custom-weight">Custom Perceptron Weights</div>
+                        <div class = "perceptron-state">
+                            <div class = "perceptron-state-stat">
+                                <div class = perceptron-state-type>Red</div>
+                                <input type="text" id = "new-red-value" class="perceptron-state-value-input" placeholder="0.914441"/>
+                            </div>
+                            <div class = "perceptron-state-stat">
+                                <div class = perceptron-state-type>Green</div>
+                                <input type="text" id ="new-green-value" class="perceptron-state-value-input" placeholder="0.291"/>
+                            </div>
+                            <div class = "perceptron-state-stat">
+                                <div class = perceptron-state-type>Blue</div>
+                                <input type="text" id ="new-blue-value" class="perceptron-state-value-input" placeholder="0.91"/>
+                            </div>
+                            <div class = "perceptron-state-stat">
+                                <div class = perceptron-state-type>Bias</div>
+                                <input type="text" id ="new-bias-value" class="perceptron-state-value-input" placeholder="0.91"/>
+                            </div>
+                            <div class = "perceptron-state-stat">
+                                <div class = perceptron-state-type>Learning Rate</div>
+                                <input type="text" id ="new-learning-rate-value" class="perceptron-state-value-input" placeholder="0.91"/>
+                            </div>
+                        </div>
+                        <div class = "perceptron-edit-button-options">
+                            <button id ="enter-new-perceptron-state-btn" class = "custom-data-percep">Set</button>
+                            <button id = "reset-perceptron-filedataset-btn" class = "custom-data-percep">Reset All</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-
-
-            <div class = "custom-data-container">
-                <div class = "custom-dataset-labels">
-                    <div class = "custom-param-label">Train Model</div>
-                    <div class = "warning-label">Start in a random state and train using dataset</div>
-                </div>
-                <div class = "upload-container">
-                    <div class = "test-data-upload">
-                        <div class = "test-data-upload-label">Training Data</div>
-
-                        <div>
-                            <label for = "select-training-file-btn" class = "test-data-upload-btn">Select File</label>
-                            <input style ="display:none" type ="file" id = "select-training-file-btn" accept = ".txt"/>
-                        </div>
-
-                        <button id = "run-training-file-btn" class = "custom-data-percep">Train</button>
-
-                    </div>
-                </div>
-          
-            </div>
-
-
-            <div class = "custom-data-container">
-                <div class = "custom-dataset-labels">
-                    <div class = "custom-param-label">Run Batch Test</div>
-                    <div class = "warning-label">Evaluate a batch of color values</div>
-                </div>
-                <div class = "upload-container">
-                    <div class = "test-data-upload">
-                        <div class = "test-data-upload-label">Testing Data</div>
-                
-                        <div>
-                            <label for = "select-batch-test-file-btn" class = "test-data-upload-btn">Select File</label>
-                            <input style ="display:none" type ="file" id = "select-batch-test-file-btn" accept = ".txt"/>
-                        </div>
-
-                        <button id = "run-batch-test-file" class = "custom-data-percep">Run Batch Test</button>
-
-
-
-                    </div>
-                </div>
-                
-
-                <div class = "perceptron-edit-box">
-                    <div class = "perceptron-state-prompt-custom-weight">Custom Perceptron Weights</div>
-                    <div class = "perceptron-state"> 
-                        <div class = "perceptron-state-stat">
-                            <div class = perceptron-state-type>Red</div>
-                            <input type="text" id = "new-red-value" class="perceptron-state-value-input" placeholder="0.914441"/>
-
-                        </div>
-                        <div class = "perceptron-state-stat">
-                            <div class = perceptron-state-type>Green</div>
-                            <input type="text" id ="new-green-value" class="perceptron-state-value-input" placeholder="0.291"/>
-                        </div>
-                        <div class = "perceptron-state-stat">
-                            <div class = perceptron-state-type>Blue</div>
-                            <input type="text" id ="new-blue-value" class="perceptron-state-value-input" placeholder="0.91"/>
-        
-                        </div>
-                        <div class = "perceptron-state-stat">
-                            <div class = perceptron-state-type>Bias</div>
-                            <input type="text" id ="new-bias-value" class="perceptron-state-value-input" placeholder="0.91"/>
-                        </div>
-                        <div class = "perceptron-state-stat">
-                            <div class = perceptron-state-type>Learning Rate</div>
-                            <input type="text" id ="new-learning-rate-value" class="perceptron-state-value-input" placeholder="0.91"/>
-                        </div>
-                    </div>
-
-                    <div class = "perceptron-edit-button-options">
-                        <button id ="enter-new-perceptron-state-btn" class = "custom-data-percep">Set</button>
-                        <button id = "reset-perceptron-filedataset-btn" class = "custom-data-percep">Reset All</button>
-                    </div>
-                </div>
-
-
-                
-            </div>
-
-       </div>
-
-
-        </div>    
+        </div>
     </body>
-
     <script src="js/main.js"></script>
-
 </html>
